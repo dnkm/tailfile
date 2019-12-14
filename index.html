@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="./node_modules/socket.io-client/dist/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        $(() => {
+            let socket = io();
+            socket.on('connect', () => {
+                console.log('connected');
+            });
+            socket.on('line', (data) => {
+              $("#tailing").append(data + "\n");
+            });
+        });
+    </script>
+    <title>Title</title>
+</head>
+
+<body>
+    
+    <pre id="tailing" style="background-color: antiquewhite;">
+    </pre>
+</body>
+
+</html>
